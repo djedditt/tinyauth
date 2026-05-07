@@ -29,14 +29,9 @@ type BootstrapApp struct {
 		csrfCookieName         string
 		redirectCookieName     string
 		oauthSessionCookieName string
-<<<<<<< HEAD
-		users                  []config.User
-		oauthWhitelist         []string
-		oauthProviders         map[string]config.OAuthServiceConfig
-=======
 		localUsers             *[]model.LocalUser
 		oauthProviders         map[string]model.OAuthServiceConfig
->>>>>>> main
+		oauthWhitelist         []string
 		configuredProviders    []controller.Provider
 		oidcClients            []model.OIDCClientConfig
 	}

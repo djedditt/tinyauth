@@ -89,13 +89,8 @@ func (app *BootstrapApp) initServices(queries *repository.Queries) (Services, er
 	services.oauthBrokerService = oauthBrokerService
 
 	authService := service.NewAuthService(service.AuthServiceConfig{
-<<<<<<< HEAD
-		Users:              app.context.users,
-		OauthWhitelist:     app.context.oauthWhitelist,
-=======
 		LocalUsers:         app.context.localUsers,
-		OauthWhitelist:     app.config.OAuth.Whitelist,
->>>>>>> main
+		OauthWhitelist:     app.context.oauthWhitelist,
 		SessionExpiry:      app.config.Auth.SessionExpiry,
 		SessionMaxLifetime: app.config.Auth.SessionMaxLifetime,
 		SecureCookie:       app.config.Auth.SecureCookie,

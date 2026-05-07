@@ -33,40 +33,10 @@ func ParseUsers(usersStr []string, userAttributes map[string]model.UserAttribute
 	return &users, nil
 }
 
-<<<<<<< HEAD
-func GetUsers(usersCfg []string, usersPath string, userAttributes map[string]config.UserAttributes) ([]config.User, error) {
+func GetUsers(usersCfg []string, usersPath string, userAttributes map[string]model.UserAttributes) (*[]model.LocalUser, error) {
 	usersStr, err := GetStringList(usersCfg, usersPath)
 	if err != nil {
-		return []config.User{}, err
-=======
-func GetUsers(usersCfg []string, usersPath string, userAttributes map[string]model.UserAttributes) (*[]model.LocalUser, error) {
-	var usersStr []string
-
-	if len(usersCfg) == 0 && usersPath == "" {
-		return nil, nil
-	}
-
-	if len(usersCfg) > 0 {
-		usersStr = append(usersStr, usersCfg...)
-	}
-
-	if usersPath != "" {
-		contents, err := ReadFile(usersPath)
-
-		if err != nil {
-			return nil, err
-		}
-
-		lines := strings.SplitSeq(contents, "\n")
-
-		for line := range lines {
-			lineTrimmed := strings.TrimSpace(line)
-			if lineTrimmed == "" {
-				continue
-			}
-			usersStr = append(usersStr, lineTrimmed)
-		}
->>>>>>> main
+		return nil, err
 	}
 
 	return ParseUsers(usersStr, userAttributes)
